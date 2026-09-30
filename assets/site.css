@@ -3,8 +3,8 @@
 :root{
   color-scheme:light;
   --teal:#2A4D4E; --teal-deep:#1F3A3B; --teal-ink:#172C2D;
-  --gold:#E8C27A; --gold-dark:#D4AF6A; --gold-ink:#8A6A2B;
-  --sand:#F5F3EF; --paper:#FFFFFF; --bubble:#E4EEEC; --wa:#25D366; --wa-dark:#1EBE5A;
+  --gold:#E8C27A; --gold-dark:#D4AF6A; --gold-ink:#7D5F25; --gold-mid:#A9823D;
+  --sand:#F5F3EF; --paper:#FFFFFF; --bubble:#E4EEEC;
   --ink:#1F2A2B; --muted:#5F6B6B; --line:#E3DDD2;
   --on-teal:#F5F3EF; --on-teal-muted:#B9C8C6; --on-teal-line:rgba(245,243,239,.16);
   --f-display:"Newsreader",Georgia,"Times New Roman",serif;
@@ -142,7 +142,7 @@ main{display:flex;flex-direction:column;gap:88px;padding-block:72px 64px}
 .steps{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:s}
 @media (min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
 .steps li{counter-increment:s;display:flex;flex-direction:column;gap:6px;padding:24px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r)}
-.steps li::before{content:counter(s);font:italic 400 44px/1 var(--f-display);color:var(--gold-dark);padding-bottom:10px}
+.steps li::before{content:counter(s);font:italic 400 44px/1 var(--f-display);color:var(--gold-mid);padding-bottom:10px}
 .steps strong{font-weight:600;font-size:17px}
 .steps span{color:var(--muted);font-size:15.5px}
 
@@ -157,14 +157,14 @@ main{display:flex;flex-direction:column;gap:88px;padding-block:72px 64px}
 .bring{list-style:none;margin:0;padding:0;display:grid;gap:10px;grid-template-columns:1fr}
 @media (min-width:600px){.bring{grid-template-columns:1fr 1fr}}
 .bring li{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:var(--paper);border:1px solid var(--line);border-radius:14px;font-size:15.5px}
-.bring li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:5px;border:1.5px solid var(--gold-dark)}
+.bring li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:5px;border:1.5px solid var(--gold-mid)}
 
 /* faq */
 .faq{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
 .faq details + details{border-top:1px solid var(--line)}
 .faq summary{cursor:pointer;list-style:none;padding:20px 60px 20px 24px;font:400 21px/1.3 var(--f-display);color:var(--teal);position:relative}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"";position:absolute;right:24px;top:50%;width:10px;height:10px;border-right:2px solid var(--gold-dark);border-bottom:2px solid var(--gold-dark);transform:translateY(-70%) rotate(45deg);transition:transform .2s}
+.faq summary::after{content:"";position:absolute;right:24px;top:50%;width:10px;height:10px;border-right:2px solid var(--gold-mid);border-bottom:2px solid var(--gold-mid);transform:translateY(-70%) rotate(45deg);transition:transform .2s}
 .faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
 .faq details p{padding:0 24px 22px;color:var(--muted);max-width:66ch}
 
@@ -172,7 +172,7 @@ main{display:flex;flex-direction:column;gap:88px;padding-block:72px 64px}
 .quote-sec{display:grid;gap:24px}
 @media (min-width:980px){.quote-sec{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:56px;align-items:end}}
 .quote{font:italic 400 clamp(30px,4.4vw,50px)/1.12 var(--f-display);color:var(--teal);text-wrap:balance}
-.quote::before{content:"“";display:block;color:var(--gold-dark);font-size:1.6em;line-height:.6;padding-bottom:10px}
+.quote::before{content:"“";display:block;color:var(--gold-mid);font-size:1.6em;line-height:.6;padding-bottom:10px}
 .prose{display:flex;flex-direction:column;gap:14px;color:var(--ink);max-width:56ch}
 
 /* contact */
@@ -204,14 +204,9 @@ footer{background:var(--teal-ink);color:var(--on-teal-muted);font-size:14px;line
 
 /* ---------- STICKY WHATSAPP ---------- */
 .bar{position:fixed;left:0;right:0;bottom:0;z-index:10;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:linear-gradient(to top,var(--sand) 68%,rgba(245,243,239,0))}
-.bar .btn{width:100%;max-width:440px;margin:0 auto;display:flex;font-size:16.5px;padding:16px 18px;box-shadow:0 8px 22px rgba(23,44,45,.22)}
+.bar .btn{width:100%;max-width:440px;margin:0 auto;display:flex;font-size:16.5px;padding:16px 18px;border-color:rgba(31,58,59,.22);box-shadow:0 8px 22px rgba(23,44,45,.22)}
 @media (min-width:760px){
   .bar{left:auto;right:24px;bottom:24px;padding:0;background:none}
   .bar .btn{width:auto;border-radius:99px;padding:14px 22px}
 }
 
-/* Botón flotante sobre fondos petróleo: pasa a verde WhatsApp */
-.bar .btn{transition:background .25s,color .25s,box-shadow .25s}
-.bar.on-dark{background:none}
-.bar.on-dark .btn{background:var(--wa);color:var(--teal-ink);box-shadow:0 8px 22px rgba(0,0,0,.28)}
-.bar.on-dark .btn:hover{background:var(--wa-dark)}
