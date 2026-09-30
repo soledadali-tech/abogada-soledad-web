@@ -13,7 +13,7 @@
 <meta property="og:title" content="Abogada Soledad · Estudio Jurídico en CABA y Provincia de Buenos Aires">
 <meta property="og:description" content="Laboral, ART, civil, comercial y familia. Consultas por WhatsApp. Atención presencial en Canning y Lomas de Zamora, y virtual.">
 <meta property="og:url" content="https://abogadasoledad.com/">
-<meta property="og:image" content="https://abogadasoledad.com/og/home.png?v=muoppo3t">
+<meta property="og:image" content="https://abogadasoledad.com/og/home.png?v=muopt5ko">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=muoppo3t">
+<link rel="stylesheet" href="/assets/site.css?v=muopt5ko">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LegalService","name":"Abogada Soledad · Estudio Jurídico","url":"https://abogadasoledad.com/","telephone":"+5491134124269","email":"consultas@abogadasoledad.com","image":"https://abogadasoledad.com/og/home.png","sameAs":["https://www.instagram.com/abogadasoledad/"],"areaServed":["Ciudad Autónoma de Buenos Aires","Provincia de Buenos Aires"],"address":[{"@type":"PostalAddress","addressLocality":"Canning","addressRegion":"Buenos Aires","addressCountry":"AR"},{"@type":"PostalAddress","addressLocality":"Lomas de Zamora","addressRegion":"Buenos Aires","addressCountry":"AR"}],"knowsAbout":["Derecho laboral","ART","Derecho civil","Sucesiones","Sociedades","Derecho de familia"]}</script>
 </head>
 <body>
@@ -116,6 +116,10 @@
     if(navigator.share){navigator.share({title:document.title,text:text,url:url}).catch(function(){});}
     else{window.open("https://wa.me/?text="+encodeURIComponent(text+" "+url),"_blank","noopener");}
   });});
+  var bar=document.querySelector(".bar"),dark=document.querySelectorAll(".hero,.band,footer");
+  function tone(){if(!bar)return;var b=bar.querySelector(".btn").getBoundingClientRect(),y=b.top+b.height/2,on=false;
+    dark.forEach(function(el){var r=el.getBoundingClientRect();if(y>=r.top&&y<=r.bottom)on=true;});bar.classList.toggle("on-dark",on);}
+  addEventListener("scroll",tone,{passive:true});addEventListener("resize",tone);tone();
   var box=document.getElementById("composer");
   if(box){
     var msg=document.getElementById("c-msg"),send=document.getElementById("c-send"),more=document.getElementById("c-more");

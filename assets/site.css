@@ -4,7 +4,7 @@
   color-scheme:light;
   --teal:#2A4D4E; --teal-deep:#1F3A3B; --teal-ink:#172C2D;
   --gold:#E8C27A; --gold-dark:#D4AF6A; --gold-ink:#8A6A2B;
-  --sand:#F5F3EF; --paper:#FFFFFF; --bubble:#E4EEEC;
+  --sand:#F5F3EF; --paper:#FFFFFF; --bubble:#E4EEEC; --wa:#25D366; --wa-dark:#1EBE5A;
   --ink:#1F2A2B; --muted:#5F6B6B; --line:#E3DDD2;
   --on-teal:#F5F3EF; --on-teal-muted:#B9C8C6; --on-teal-line:rgba(245,243,239,.16);
   --f-display:"Newsreader",Georgia,"Times New Roman",serif;
@@ -209,3 +209,9 @@ footer{background:var(--teal-ink);color:var(--on-teal-muted);font-size:14px;line
   .bar{left:auto;right:24px;bottom:24px;padding:0;background:none}
   .bar .btn{width:auto;border-radius:99px;padding:14px 22px}
 }
+
+/* Botón flotante sobre fondos petróleo: pasa a verde WhatsApp */
+.bar .btn{transition:background .25s,color .25s,box-shadow .25s}
+.bar.on-dark{background:none}
+.bar.on-dark .btn{background:var(--wa);color:var(--teal-ink);box-shadow:0 8px 22px rgba(0,0,0,.28)}
+.bar.on-dark .btn:hover{background:var(--wa-dark)}
